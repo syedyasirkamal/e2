@@ -50,7 +50,7 @@ if ($guess || $guess===0) {
         $str="Too low my friend. Guess again!";
     } 
 
-    // Decrease the attempts counter by 1 on each successful match
+    // Decrease the attempts counter by 1 on each unsuccessful match
        if(isset($_POST['submit'])) {
         --$_SESSION['counter'];   
     } 
