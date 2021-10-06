@@ -22,8 +22,7 @@
  ?> </div>
  </div>
 
-<?php echo $number."<br />".$guess."<br />".$str."<br />".$_SESSION['counter'];
- ?> 
+ 
 
 </body>
 </html>
