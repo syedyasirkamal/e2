@@ -34,4 +34,7 @@
 @yield('body')
 
 </body>
+<div id="attempts"> 
+    @yield('links')
+    </div>
 </html>

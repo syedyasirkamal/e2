@@ -7,4 +7,6 @@ return [
     '/' => ['AppController', 'index'],
     '/gameshow' => ['AppController', 'gameshow'],
     '/gameshow/save' => ['AppController', 'save'],
+    '/historyshow' => ['AppController', 'historyshow'],
+    '/historydetails' => ['AppController', 'historydetails'],
 ];

@@ -93,4 +93,36 @@ if($counter<1 or $number==$guess) {
         ]
         );
     }
+
+
+     
+    public function historyshow()
+    {
+         
+        $histories = $this->app->db()->all('rounds');
+        
+        
+        return $this->app->view('historyshow', [
+            'histories'=> $histories, 
+           
+        ]);
+ 
+    }
+
+    public function historydetails()
+    {
+         
+        $roundnum = $this->app->param('round');
+ 
+        $historyQuery = $this->app->db()->findByColumn('rounds', 'roundnum', '=', $roundnum);
+        $historyDetails = $historyQuery[0];
+        
+        
+        return $this->app->view('historydetails', [
+            'roundnum'=> $roundnum, 
+            "historyDetails"=> $historyDetails
+           
+        ]);
+ 
+    }
 } 

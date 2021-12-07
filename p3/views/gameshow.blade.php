@@ -75,3 +75,14 @@ guess {{$app->old('guess')}}
 guesses {{$app->old('guesses')}} 
 roundnum {{$roundnum}}
 @endsection
+
+@section('links')
+<br /> 
+<a href="/">< Play a New Game 
+                </a>
+            &emsp;&emsp;&emsp;&emsp;
+ <a href="/historyshow">All Game History >  
+                </a> 
+   
+ 
+@endsection

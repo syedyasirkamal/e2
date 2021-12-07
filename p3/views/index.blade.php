@@ -41,3 +41,11 @@ counter {{ $counter   }}
 number  {{ $number}}  
 roundnum {{$roundnum}}
 @endsection
+
+@section('links')
+<br /> 
+ <a href="/historyshow">All Game History >  
+                </a>
+   
+ 
+@endsection
