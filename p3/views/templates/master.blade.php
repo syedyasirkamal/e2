@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 
-    <title>Project 1 - High/Low Guessing game</title>
+    <title>@yield('title','P3')</title>
 
     <meta charset='utf-8'>
 

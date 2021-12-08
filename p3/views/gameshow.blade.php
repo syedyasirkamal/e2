@@ -11,14 +11,14 @@
  @if($counter>0 and $number!=$guess) 
    
    @if($number>$guess)
-     Too low my friend. Guess again! Your guess was: {{$guess}};
+     Too low my friend. Guess again! Your guess was: <span test=guess-text>{{$guess}}</span>;
 @elseif($number<$guess)
-Woahhh that's too high. Try again!. Your guess was: {{$guess}};
+Woahhh that's too high. Try again!. Your guess was: <span test=guess-text>{{$guess}}</span>;
 @endif
  <br /> 
   <br /> 
-  <input type="text" name="guess" id="guess" /><br /> 
-<input type="submit" name="submit" value="GUESS"/><br />  
+  <input type="text" test="guess" name="guess" id="guess" /><br /> 
+<input type="submit" test="submit" name="submit" value="submit"/><br />  
  
  
 
@@ -26,10 +26,10 @@ Woahhh that's too high. Try again!. Your guess was: {{$guess}};
 
 @endif
 
- <input type="hidden" name="round" id="round" value='{{ $roundnum }}'> 
- <input type="hidden" name="number" id="number" value='{{$app->old('number')}}'/>
-  <input type="hidden" name="counter" id="counter" value='{{$app->old('counter')}}' /> 
-     <input type="hidden" name="guesses" id="guesses" value='{{$app->old('guesses')}}'/> 
+ <input type="hidden" test="round" name="round" id="round" value='{{ $roundnum }}'> 
+ <input type="hidden" test="number" name="number" id="number" value='{{$app->old('number')}}'/>
+  <input type="hidden" test="counter" name="counter" id="counter" value='{{$app->old('counter')}}' /> 
+     <input type="hidden" test="guesses" name="guesses" id="guesses" value='{{$app->old('guesses')}}'/> 
 
 </form>
 
@@ -37,15 +37,16 @@ Woahhh that's too high. Try again!. Your guess was: {{$guess}};
  
     
 @if($counter<1)
-  You lost! The correct answer was: {{$number}}
+  You lost! Your guess was <span test=lost-guess-text>{{$guess}}</span>. The correct answer was: {{$number}}
 @elseif($number==$guess)
-Hurray! You guessed it right. The number was {{$number}}
+Hurray! You guessed it right. The number was <span test=guess-text>{{$number}}</span>
 @endif
     <br /> 
        <br /> 
-       
+
+<div test="play-again" >       
 <button id=button onclick=window.location.replace("/")>Play Again!</button><br /> 
-     
+     </div>
 <br /> 
     
 
@@ -64,7 +65,7 @@ Hurray! You guessed it right. The number was {{$number}}
 
 @endsection
 
-  
+   @if($counter>0 and $number!=$guess) 
 @section('attempts')
   
   You have {{$counter}} attempts left at this game.
@@ -75,6 +76,7 @@ guess {{$app->old('guess')}}
 guesses {{$app->old('guesses')}} 
 roundnum {{$roundnum}}
 @endsection
+@endif
 
 @section('links')
 <br /> 

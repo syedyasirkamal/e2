@@ -1,5 +1,9 @@
 @extends('templates.master')
 
+ 
+@section('title')
+  P3
+@endsection
 
 @section('message')
     
@@ -13,17 +17,17 @@
  
    
      <input type="hidden" name="round" id="round" value='{{ $roundnum }}'> 
-  <input type="text" name="guess" id="guess" /><br /> 
-<input type="submit" name="submit" value="GUESS"/><br />  
-<input type="hidden" name="number" id="number" value='{{ $number }}'/> 
-  <input type="hidden" name="counter" id="counter" value='{{ $counter }}'/> 
-   <input type="hidden" name="guesses" id="guesses" value='{{$guesses}}'/> 
+  <input type="text" test="guess" name="guess" id="guess" value='{{ $guess }}' /><br /> 
+<input type="submit" test= "submit" name="submit" value="submit"/><br />  
+<input type="hidden" test="number" name="number" id="number" value='{{ $number }}'/> 
+  <input type="hidden" test="counter" name="counter" id="counter" value='{{ $counter }}'/> 
+   <input type="hidden" test="guesses" name="guesses" id="guesses" value='{{$guesses}}'/> 
 
  
 </form>
 
 @if($app->errorsExist())
-<ul class='error alert alert-danger'>
+<ul test='validation-output' class='error alert alert-danger'>
     @foreach($app->errors() as $error)
     <li>{{ $error }}</li>
     @endforeach
@@ -35,7 +39,7 @@
 
 <br /><br />  
 @section('attempts')
-  You have {{ isset($results) ? $counter : '4'}} attempts left at this game.
+  You have {{ isset($results) ? 4-$counter : '4'}} attempts left at this game.
 
 counter {{ $counter   }}
 number  {{ $number}}  

@@ -35,8 +35,7 @@ class AppCommand extends Command
     }
 
     public function seedDummyData() {
-
-        require_once 'vendor/autoload.php';
+ 
 
         # Instantiate a new instance of the Faker\Factory class
         $faker = Factory::create();
@@ -48,48 +47,44 @@ class AppCommand extends Command
 
             for ($i = 0; $i < 20; $i++) {
         
-                $roundnum = $faker->sha1();
-                $number =  $faker->numberBetween(1, 10);
-                $guess =  $faker->numberBetween(1, 10);
-                $counter = 4;
-                $guesses = null;
+                $guesses = range(1, 10);
+                shuffle($guesses);
 
+                $outcome = ['won', 'lost'][rand(0, 1)];
+
+                if ($outcome == 'lost') {
+                $guesses = array_slice($guesses, 0, 4);
+
+                $number = rand(1, 10);
+                 while (in_array($number, $guesses)) {
+                 $number = rand(1, 10);
+                }
+
+                $guess = $guesses[count($guesses) - 1];
+
+                $counter = count($guesses);
+
+            } else { 
+
+                $counter = rand(0, 3);
+                $guesses = array_slice($guesses, 0, $counter+1);
+                $number = $guesses[count($guesses) - 1];
+                $guess = $number;
+             
+            }
+             
+            $guesses = implode(' ', $guesses);
             
-
-            # Set up a game
-            if ($number==$guess) {
-                $dummyData = [
-                
+            $dummyData = [
                 'guess' => $guess,
-                'roundnum' => $roundnum,
+                'roundnum' => $faker->sha1(),
                 'number' => $number,
-                'guesses' => $guesses.$guess.' ',
+                'guesses' => $guesses,
                 'counter' => $counter,
             ];
-            } else { $dummyData = [
-                
-                'guess' => $guess,
-                'roundnum' => $roundnum,
-                'number' => $number,
-                'guesses' => $guesses.$guess.' ',
-                'counter' => --$counter,
-            ];}
 
-           
-               
-         
-        
-        
-    
-            # Insert the game
             $this->app->db()->insert('rounds', $dummyData);
-             
-  
-             
-                
-                
-            
-        }
+            } 
              
         }
     }

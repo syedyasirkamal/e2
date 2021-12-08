@@ -12,7 +12,7 @@
 
         @foreach ($histories as $history)
              
-                <a href="/historydetails?round={{$history['roundnum']}}"><div> Game #{{ $history['id'] }}</div>
+                <a test="game-count" href="/historydetails?round={{$history['roundnum']}}"><div> Game #{{ $history['id'] }}</div>
                 </a>
             
         @endforeach
