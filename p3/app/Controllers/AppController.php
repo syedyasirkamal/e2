@@ -36,10 +36,7 @@ return $this->app->view('index', [
         $number = $this->app->old('number');
         $guess = $this->app->old('guess');
         $guesses = $this->app->old('guesses');
-  
-        dump($counter);
-        dump($number);
-dump($guesses);
+   
 
         
         return $this->app->view('gameshow', [

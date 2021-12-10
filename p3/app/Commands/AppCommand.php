@@ -45,7 +45,7 @@ class AppCommand extends Command
       
            
 
-            for ($i = 0; $i < 20; $i++) {
+            for ($i = 0; $i < 15; $i++) {
         
                 $guesses = range(1, 10);
                 shuffle($guesses);

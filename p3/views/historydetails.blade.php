@@ -13,7 +13,7 @@
     Number: {{ $historyDetails['number'] }}<br /> 
     Your guesses: {{ $historyDetails['guesses'] }}<br /> 
     Incorrect attempts: {{$historyDetails['counter'] }}<br /> 
-{{$historyDetails['guess']}}
+<br /> 
     @endsection
 
 @section('attempts')

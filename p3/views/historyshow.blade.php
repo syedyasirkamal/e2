@@ -27,6 +27,7 @@
  <a href="/">Play a New Game >
                 </a>
             
-   
+   <br /> 
+   <br /> 
  
 @endsection

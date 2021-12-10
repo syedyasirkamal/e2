@@ -69,12 +69,7 @@ Hurray! You guessed it right. The number was <span test=guess-text>{{$number}}</
 @section('attempts')
   
   You have {{$counter}} attempts left at this game.
-
-counter {{$counter}}
-number  {{$app->old('number')}}  
-guess {{$app->old('guess')}} 
-guesses {{$app->old('guesses')}} 
-roundnum {{$roundnum}}
+ 
 @endsection
 @endif
 

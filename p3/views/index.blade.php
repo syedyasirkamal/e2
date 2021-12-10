@@ -40,10 +40,7 @@
 <br /><br />  
 @section('attempts')
   You have {{ isset($results) ? 4-$counter : '4'}} attempts left at this game.
-
-counter {{ $counter   }}
-number  {{ $number}}  
-roundnum {{$roundnum}}
+ 
 @endsection
 
 @section('links')
